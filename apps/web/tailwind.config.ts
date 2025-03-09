@@ -18,7 +18,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: "#0D87E1",
+        primary: "#FADADD",
         pastelPink: '#FADADD',
         pastelPurple: '#E0BBE4',
         pastelBlue: '#C1C8E4',

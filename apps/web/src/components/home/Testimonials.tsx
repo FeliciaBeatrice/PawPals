@@ -1,31 +1,32 @@
 import Image from "next/image";
 import TestTimonialCard from "../common/TestTimonialCard";
+import { faker } from "@faker-js/faker";
 
 const TestimonialsData = [
   {
     rating: 5,
     review:
-      "Great note-taking application! The AI features make note-taking a breeze",
-    name: "Ryan Lowry",
-    designation: "Engineer & Author",
-    profile: "/images/profile.png",
+      "Fantastic service! My dog was well taken care of while I was on vacation.",
+    name: "Sarah Johnson",
+    designation: "Dog Owner",
+    profile: faker.image.avatar(),
     feature: false,
   },
   {
     rating: 5,
     review:
-      "Really like the clean design of UseNotes. The AI-driven search is impressively accurate, adding a personal dimension to my notes. Fast and very easy to use.",
-    name: "John Collins",
-    designation: "Engineer & Author",
-    profile: "/images/profile.png",
+      "The pet sitter was amazing! My dog loved her and I felt completely at ease.",
+    name: "Mark Smith",
+    designation: "Dog Owner",
+    profile: faker.image.avatar(),
     feature: true,
   },
   {
     rating: 5,
-    review: "Simply brilliant! UseNotes has elevated my productivity.",
-    name: "Moe Partuj",
-    designation: "Student",
-    profile: "/images/Moe-Partuj.jpeg",
+    review: "Highly recommend! Great experience for both me and my dog.",
+    name: "Emily Davis",
+    designation: "Dog Owner",
+    profile: faker.image.avatar(),
     feature: false,
   },
 ];

@@ -1,28 +1,29 @@
+import { faker } from "@faker-js/faker";
 import Image from "next/image";
 
 const benefits = [
   {
-    title: "Effortless Note-Taking",
-    description: "Capture thoughts effortlessly with our intuitive interface",
-    image: "/images/goodNews.png",
+    title: "Trusted Care",
+    description: "Find reliable pet sitters who love animals as much as you do.",
+    image: faker.image.urlPicsumPhotos(),
   },
   {
-    title: "Seamless Sync",
+    title: "Convenient Booking",
     description:
-      "Access your notes anytime, anywhere, with seamless cloud synchronization.",
-    image: "/images/cloudSync.png",
+      "Easily schedule pet sitting services at your convenience.",
+      image: faker.image.urlPicsumPhotos(),
   },
   {
-    title: "Enhanced Productivity",
+    title: "Peace of Mind",
     description:
-      "Let AI handle organization, so you can focus on what matters most.",
-    image: "/images/googleCalander.png",
+      "Rest easy knowing your pets are in good hands while you're away.",
+      image: faker.image.urlPicsumPhotos(),
   },
   {
-    title: "AI-Powered Insights",
+    title: "Personalized Attention",
     description:
-      "Gain valuable insights with smart analytics based on your note patterns.",
-    image: "/images/bot.png",
+      "Get tailored care for your pets based on their unique needs.",
+      image: faker.image.urlPicsumPhotos(),
   },
 ];
 
@@ -65,15 +66,6 @@ const Benefits = () => {
                 key={index}
                 className="flex gap-2 sm:gap-7 bg-white items-center border rounded-[17px] py-4 px-2 sm:py-12 sm:px-6 border-solid border-[#B8B5B5] shadow-xl"
               >
-                <div className=" min-w-16 sm:min-w-28">
-                  <Image
-                    src={benefit.image}
-                    width={100}
-                    height={100}
-                    alt="benefit"
-                    className="sm:w-[100px] w-[58px]"
-                  />
-                </div>
                 <div className="">
                   <h4 className="text-black text-[24px] sm:text-[42px] not-italic font-medium leading-[90.3%] tracking-[-1.05px] pb-2 sm:pb-6 font-montserrat">
                     {benefit.title}

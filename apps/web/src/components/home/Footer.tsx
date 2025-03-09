@@ -13,7 +13,7 @@ const menuItems = [
   },
   {
     title: "Get Started",
-    url: "/notes",
+    url: "/onboarding",
   },
   {
     title: "Reviews",
@@ -31,13 +31,12 @@ const Footer = () => {
         </div>
         <div className="pt-8 border-t-[#929292] border-t border-solid">
           <h3 className="text-gray-900 text-xl not-italic font-semibold leading-[30px] font-montserrat pb-2">
-            Take more efficient notes with UseNotes
+            Ensure Your Pets Are Well Cared For
           </h3>
+          <p className="text-gray-600 font-montserrat text-base not-italic font-normal leading-6">
+            Connect with loving pet sitters and enjoy peace of mind.
+          </p>
           <div className="flex justify-between">
-            <p className="text-gray-600 font-montserrat text-base not-italic font-normal leading-6">
-              Save countless hours of note-taking and organize your notes
-              easier.
-            </p>
             <p className="text-gray-600 font-inter text-base not-italic font-normal leading-6">
               © 2023 UseNotes. All rights reserved.
             </p>
