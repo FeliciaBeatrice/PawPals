@@ -90,5 +90,6 @@ You can use the ⬆ and ⬇ keyboard keys to view logs for the Convex backend, w
 ## Notable Decisions
 
 - I used this [base project](https://github.com/get-convex/turbo-expo-nextjs-clerk-convex-monorepo) as it was a good starting point for me to build a web app and possibly expand to a mobile app in the future.
+- A lot of the frontend design was made on the go as I prioritized functionality for the POC, but I plan to design a consistent UI throughout the app.
 - Currently, I plan to make the user experience different for pet owners and pet sitters. I prioritized completing the flow for pet sitters first as the frontend components should mostly be reusable for the pet owner flow.
 - I deployed the web app using Vercel and here is the live link: [PawPals](https://pawpals-web.vercel.app/)
