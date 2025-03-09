@@ -1,13 +1,22 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { api } from "@packages/backend/convex/_generated/api";
 import { useMutation } from "convex/react";
+import Link from "next/link";
 
-export default function Home() {
-    const setRole = useMutation(api.mutations.setUserRole.setUserRole);
+export default function OnboardingPage() {
+    const router = useRouter();
+    const setUserRole = useMutation(api.mutations.setUserRole.setUserRole);
 
     const handleRoleSelection = async (role: "owner" | "sitter") => {
-        await setRole({ role });
+        await setUserRole({ role });
+
+        if (role === "owner") {
+            router.push('/onboarding/owner');
+        } else if (role === "sitter") {
+            router.push('/onboarding/sitter');
+        }
     };
 
     return (
