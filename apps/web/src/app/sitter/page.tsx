@@ -1,15 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "@packages/backend/convex/_generated/api";
 import Header from "@/components/sitter/Header";
+import { Id } from "@packages/backend/convex/_generated/dataModel";
 
 export default function SitterHomePage() {
   const listings = useQuery(api.queries.getListing.getAllListings);
+  const createConversation = useMutation(api.mutations.createConversation.createConversationMutation);
   const [currentListingIndex, setCurrentListingIndex] = useState(0);
-  const handleLike = () => {
-    window.location.href = "/sitter/conversations"; // TODO: Change to specific conversation with owner
+  const handleLike = async () => {
+    // call the action and create a conversation with the owner
+    const conversationId = await createConversation({ userId: listings?.[currentListingIndex]?.userId as Id<"users"> });
+    window.location.href = "/sitter/conversations/" + conversationId;
   };
 
   const handleDislike = () => {

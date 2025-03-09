@@ -33,7 +33,7 @@ export default defineSchema({
   conversations: defineTable({
     ownerId: v.id("users"),
     sitterId: v.id("users"),
-  }),
+  }).index("by_owner_and_sitter", ["ownerId", "sitterId"]),
   messages: defineTable({
     conversationId: v.id("conversations"),
     senderId: v.id("users"),
