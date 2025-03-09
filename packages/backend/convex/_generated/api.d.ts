@@ -13,6 +13,7 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as database_seedConversations from "../database/seedConversations.js";
 import type * as database_seedListings from "../database/seedListings.js";
 import type * as database_seedOwners from "../database/seedOwners.js";
 import type * as database_seedSitters from "../database/seedSitters.js";
@@ -21,6 +22,7 @@ import type * as mutations_setUserProfile from "../mutations/setUserProfile.js";
 import type * as mutations_setUserRole from "../mutations/setUserRole.js";
 import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
+import type * as queries_getConversation from "../queries/getConversation.js";
 import type * as queries_getListing from "../queries/getListing.js";
 import type * as queries_getUserProfile from "../queries/getUserProfile.js";
 import type * as users_userManagement from "../users/userManagement.js";
@@ -36,6 +38,7 @@ import type * as webhooks from "../webhooks.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "database/seedConversations": typeof database_seedConversations;
   "database/seedListings": typeof database_seedListings;
   "database/seedOwners": typeof database_seedOwners;
   "database/seedSitters": typeof database_seedSitters;
@@ -44,6 +47,7 @@ declare const fullApi: ApiFromModules<{
   "mutations/setUserRole": typeof mutations_setUserRole;
   notes: typeof notes;
   openai: typeof openai;
+  "queries/getConversation": typeof queries_getConversation;
   "queries/getListing": typeof queries_getListing;
   "queries/getUserProfile": typeof queries_getUserProfile;
   "users/userManagement": typeof users_userManagement;
