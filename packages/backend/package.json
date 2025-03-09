@@ -9,10 +9,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^9.6.0",
     "convex": "^1.13.0",
-    "openai": "^4.45.0"
+    "faker": "^6.6.6",
+    "openai": "^4.45.0",
+    "package": "^1.0.1"
   },
-   "devDependencies": {
+  "devDependencies": {
     "typescript": "^5.7.3"
   }
 }

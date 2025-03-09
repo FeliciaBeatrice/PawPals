@@ -13,6 +13,8 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as database_seedOwners from "../database/seedOwners.js";
+import type * as database_seedSitters from "../database/seedSitters.js";
 import type * as http from "../http.js";
 import type * as mutations_setUserProfile from "../mutations/setUserProfile.js";
 import type * as mutations_setUserRole from "../mutations/setUserRole.js";
@@ -32,6 +34,8 @@ import type * as webhooks from "../webhooks.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "database/seedOwners": typeof database_seedOwners;
+  "database/seedSitters": typeof database_seedSitters;
   http: typeof http;
   "mutations/setUserProfile": typeof mutations_setUserProfile;
   "mutations/setUserRole": typeof mutations_setUserRole;
