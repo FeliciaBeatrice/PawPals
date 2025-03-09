@@ -6,6 +6,7 @@ import { useMutation } from "convex/react";
 
 export default function OnboardingPage() {
     const router = useRouter();
+    
     const setUserRole = useMutation(api.mutations.setUserRole.setUserRole);
 
     const handleRoleSelection = async (role: "owner" | "sitter") => {

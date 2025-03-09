@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useMutation } from 'convex/react';
 import { api } from "@packages/backend/convex/_generated/api";
+import { useRouter } from 'next/navigation';
 
 export default function SitterOnboardingPage() {
   const [name, setName] = useState('');
@@ -15,6 +16,7 @@ export default function SitterOnboardingPage() {
   const [notes, setNotes] = useState('');
 
   const setSitterProfile = useMutation(api.mutations.setUserProfile.setSitterProfile);
+  const router = useRouter();
 
   async function handleSubmit(event: any) {
     event.preventDefault();
@@ -36,6 +38,8 @@ export default function SitterOnboardingPage() {
       skills,
       notes,
     });
+
+    router.push('/sitter');
   }
 
   function toBase64(file: File): Promise<string> {
