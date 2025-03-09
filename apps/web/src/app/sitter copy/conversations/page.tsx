@@ -6,7 +6,7 @@ import { api } from "@packages/backend/convex/_generated/api";
 import Link from "next/link";
 
 export default function SitterConversationsPage() {
-    const conversations = useQuery(api.queries.getConversation.getConversations);
+    const conversations = useQuery(api.queries.getConversationsOfSitter.getConversationsOfSitter);
     
     return (
         <div className="min-h-screen bg-gradient-to-r from-pastelBlue to-pastelPink flex flex-col">
