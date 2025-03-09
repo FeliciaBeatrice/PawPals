@@ -8,7 +8,11 @@ import Header from "@/components/sitter/Header";
 export default function ListingsPage() {
     const listings = useQuery(api.queries.getListing.getAllListings);
     const [currentListingIndex, setCurrentListingIndex] = useState(0);
-    const handleNext = () => {
+    const handleLike = () => {
+        window.location.href = "/sitter/conversations"; // TODO: Change to specific conversation with owner
+    };
+
+    const handleDislike = () => {
         if (listings && listings.length > 0) {
             setCurrentListingIndex((prevIndex) => Math.min(prevIndex + 1, listings.length - 1));
         }
@@ -30,10 +34,16 @@ export default function ListingsPage() {
                     <p className="text-gray-700"><strong>Until:</strong> {new Date(listings[currentListingIndex].end).toLocaleDateString()}</p>
                     <p className="text-gray-700"><strong>Notes:</strong> {listings[currentListingIndex].notes || "N/A"}</p>
                     <button 
-                        onClick={handleNext} 
-                        className="mt-4 bg-primary text-white p-2 rounded hover:bg-pastelBlueHover transition duration-300"
+                        onClick={handleDislike} 
+                        className="mt-4 bg-red-500 text-white p-2 rounded hover:bg-red-600 transition duration-300"
                     >
-                        Next
+                        Dislike
+                    </button>
+                    <button 
+                        onClick={handleLike} 
+                        className="mt-4 bg-green-500 text-white p-2 rounded hover:bg-green-600 transition duration-300"
+                    >
+                        Like
                     </button>
                 </div>
             ) : (
