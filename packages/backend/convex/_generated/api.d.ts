@@ -16,7 +16,7 @@ import type {
 import type * as http from "../http.js";
 import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
-import type * as userManagement from "../userManagement.js";
+import type * as users_userManagement from "../users/userManagement.js";
 import type * as utils from "../utils.js";
 import type * as webhooks from "../webhooks.js";
 
@@ -32,7 +32,7 @@ declare const fullApi: ApiFromModules<{
   http: typeof http;
   notes: typeof notes;
   openai: typeof openai;
-  userManagement: typeof userManagement;
+  "users/userManagement": typeof users_userManagement;
   utils: typeof utils;
   webhooks: typeof webhooks;
 }>;

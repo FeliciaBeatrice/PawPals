@@ -17,11 +17,11 @@ export const onClerkWebhookEventReceived = httpAction(async (ctx, request) => {
         const firstName: string = requestObj.data.first_name ?? undefined;
         const lastName: string = requestObj.data.last_name ?? undefined;
         const avatarUrl: string = requestObj.data.profile_image_url ?? undefined;
-        await ctx.runMutation(internal.userManagement.createDbUserMutation, { clerkUserId, email, firstName, lastName, avatarUrl });
+        await ctx.runMutation(internal.users.userManagement.createDbUserMutation, { clerkUserId, email, firstName, lastName, avatarUrl });
     }
 
     if (requestObj.type == 'user.deleted') {
-        await ctx.runAction(internal.userManagement.deleteUserAction, { clerkUserId });
+        await ctx.runAction(internal.users.userManagement.deleteUserAction, { clerkUserId });
     }
 
     return new Response();
