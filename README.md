@@ -70,7 +70,14 @@ In your [Convex project dashboard > Settings > Environment Variables](https://da
 
 - `CLERK_ISSUER_URL`: The issuer URL from the [Clerk JWT Template](https://dashboard.clerk.com/last-active?path=jwt-templates).
 
-### 5. Run Both Apps
+### 5. Configure Both Apps
+
+In each app directory (apps/web, apps/native) create a .env.local file using the .example.env as a template and fill out your Convex and Clerk environment variables.
+
+- Use the CONVEX_URL from packages/backend/.env.local for {NEXT,EXPO}_PUBLIC_CONVEX_URL.
+-The Clerk publishable & secret keys can be found [here](https://dashboard.clerk.com/last-active?path=api-keys).
+
+### 6. Run Both Apps
 
 To run both the web and mobile applications, execute in the root directory:
 
@@ -82,5 +89,6 @@ You can use the ⬆ and ⬇ keyboard keys to view logs for the Convex backend, w
 
 ## Notable Decisions
 
-- I used this [base project](https://github.com/get-convex/turbo-expo-nextjs-clerk-convex-monorepo) as it was a good starting point for the me to build a web app and possibly expand to a mobile app in the future.
+- I used this [base project](https://github.com/get-convex/turbo-expo-nextjs-clerk-convex-monorepo) as it was a good starting point for me to build a web app and possibly expand to a mobile app in the future.
 - Currently, I plan to make the user experience different for pet owners and pet sitters. I prioritized completing the flow for pet sitters first as the frontend components should mostly be reusable for the pet owner flow.
+- I deployed the web app using Vercel and here is the live link: [PawPals](https://pawpals-web.vercel.app/)
