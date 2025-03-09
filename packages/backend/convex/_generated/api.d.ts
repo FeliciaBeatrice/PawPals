@@ -13,9 +13,12 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as http from "../http.js";
 import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
+import type * as userManagement from "../userManagement.js";
 import type * as utils from "../utils.js";
+import type * as webhooks from "../webhooks.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -26,9 +29,12 @@ import type * as utils from "../utils.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  http: typeof http;
   notes: typeof notes;
   openai: typeof openai;
+  userManagement: typeof userManagement;
   utils: typeof utils;
+  webhooks: typeof webhooks;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,
