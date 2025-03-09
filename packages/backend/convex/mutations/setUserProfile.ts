@@ -16,7 +16,12 @@ export const setOwnerProfile = mutation({
             isOnboardingCompleted: true,
             name: name,
             displayPicture: displayPicture,
-            location: location
+            location: location,
+            availabilityStart: undefined,
+            availabilityEnd: undefined,
+            experience: undefined,
+            skills: undefined,
+            notes: undefined
         });
       },
 })
