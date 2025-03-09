@@ -1,8 +1,6 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
-// clerk -> create user in convex -> use this user
-
 export default defineSchema({
   notes: defineTable({
     userId: v.string(),
