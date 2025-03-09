@@ -15,40 +15,36 @@ export default defineSchema({
     isOnboardingCompleted: v.boolean(),
     name: v.optional(v.string()),
     displayPicture: v.optional(v.string()),
-    role: v.optional(v.string()), // Assuming role is a string, adjust if it's a specific set of values
+    role: v.optional(v.string()),
     location: v.optional(v.string()),
-    availabilityStart: v.optional(v.number()), // Assuming this is a timestamp in milliseconds
-    availabilityEnd: v.optional(v.number()), // Assuming this is a timestamp in milliseconds
+    availabilityStart: v.optional(v.number()),
+    availabilityEnd: v.optional(v.number()),
     experience: v.optional(v.string()),
     skills: v.optional(v.string()),
-    notes: v.optional(v.string()),    
+    notes: v.optional(v.string()),
   }).index("by_external_id", ["externalId"]),
   listings: defineTable({
-    createdAt: v.number(), // Assuming this is a timestamp in milliseconds
-    userId: v.id("users"), // Reference to users._id
+    userId: v.id("users"),
     picture: v.string(),
     petName: v.string(),
     petType: v.string(),
-    start: v.number(), // Assuming this is a timestamp in milliseconds
-    end: v.number(), // Assuming this is a timestamp in milliseconds
-    notes: v.string(),
+    start: v.number(),
+    end: v.number(),
+    notes: v.optional(v.string()),
   }),
   conversations: defineTable({
-    createdAt: v.number(), // Assuming this is a timestamp in milliseconds
-    ownerId: v.id("users"), // Reference to users._id
-    sitterId: v.id("users"), // Reference to users._id
+    ownerId: v.id("users"),
+    sitterId: v.id("users"),
   }),
   messages: defineTable({
-    createdAt: v.number(), // Assuming this is a timestamp in milliseconds
-    conversationId: v.id("conversations"), // Reference to conversations._id
-    senderId: v.id("users"), // Reference to users._id
+    conversationId: v.id("conversations"),
+    senderId: v.id("users"),
     message: v.string(),
   }),
   reviews: defineTable({
-    createdAt: v.number(), // Assuming this is a timestamp in milliseconds
-    ownerId: v.id("users"), // Reference to users._id
-    sitterId: v.id("users"), // Reference to users._id
-    type: v.string(), // Assuming type is a string, adjust if it's a specific set of values
-    comments: v.string(),
+    ownerId: v.id("users"),
+    sitterId: v.id("users"),
+    type: v.string(),
+    comments: v.optional(v.string()),
   }),
 });
