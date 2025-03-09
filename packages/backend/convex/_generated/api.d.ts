@@ -20,6 +20,7 @@ import type * as mutations_setUserProfile from "../mutations/setUserProfile.js";
 import type * as mutations_setUserRole from "../mutations/setUserRole.js";
 import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
+import type * as queries_getOwnerProfiles from "../queries/getOwnerProfiles.js";
 import type * as queries_getUserProfile from "../queries/getUserProfile.js";
 import type * as users_userManagement from "../users/userManagement.js";
 import type * as utils from "../utils.js";
@@ -41,6 +42,7 @@ declare const fullApi: ApiFromModules<{
   "mutations/setUserRole": typeof mutations_setUserRole;
   notes: typeof notes;
   openai: typeof openai;
+  "queries/getOwnerProfiles": typeof queries_getOwnerProfiles;
   "queries/getUserProfile": typeof queries_getUserProfile;
   "users/userManagement": typeof users_userManagement;
   utils: typeof utils;
