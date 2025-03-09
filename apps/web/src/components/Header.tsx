@@ -62,7 +62,7 @@ export default function Header() {
                         type="button"
                         className=" text-white text-center text-xl not-italic font-normal leading-[normal] font-montserrat px-[22px] py-[11px] button"
                       >
-                        Find your pawpal
+                        Find your PawPal
                       </button>
                     </Link>
                     <UserNav

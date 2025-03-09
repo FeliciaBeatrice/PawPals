@@ -42,7 +42,7 @@ const Benefits = () => {
           Benefits
         </p>
         <h3 className=" text-black text-3xl sm:text-[57px] not-italic font-medium leading-[90.3%] tracking-[-1.425px] font-montserrat text-center pb-[46px] sm:pb-[87px]">
-          Why Choose UseNotes
+          Why Choose PawPals
         </h3>
 
         <div className="relative">

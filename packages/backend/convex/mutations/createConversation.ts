@@ -8,20 +8,20 @@ export const createConversationMutation = mutation({
     },
     handler: async (ctx, args) => {
         const user = await getCurrentUserOrThrow(ctx);
-        const currentUserIsSitter = user.role === "sitter";
         const userId = user._id;
         if (!userId) return null;
 
         const existingConversation = await ctx.db.query("conversations")
-            .withIndex("by_owner_and_sitter", q => q.eq("ownerId", args.userId).eq("sitterId", userId))
+            .filter((q) => q.and(
+                q.eq(q.field("ownerId"), args.userId),
+                q.eq(q.field("sitterId"), userId)
+            ))
             .first();
         if (existingConversation) {
             await ctx.db.insert("messages", {
                 conversationId: existingConversation._id,
                 senderId: userId,
-                message: currentUserIsSitter ? 
-                `Hello, I am interested in looking after your pet.` : 
-                `Hello, can you please look after my pet?`,
+                message: `Hello, I am interested in looking after your pet.`,
             });
             return existingConversation._id;
         }
@@ -34,9 +34,7 @@ export const createConversationMutation = mutation({
         await ctx.db.insert("messages", {
             conversationId: conversation,
             senderId: userId,
-            message: currentUserIsSitter ? 
-            `Hello, I am interested in looking after your pet.` : 
-            `Hello, can you please look after my pet?`,
+            message: `Hello, I am interested in looking after your pet.`,
         });
 
         return conversation;

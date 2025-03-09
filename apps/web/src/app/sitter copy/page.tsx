@@ -10,15 +10,10 @@ export default function SitterHomePage() {
   const listings = useQuery(api.queries.getListing.getAllListings);
   const createConversation = useMutation(api.mutations.createConversation.createConversationMutation);
   const [currentListingIndex, setCurrentListingIndex] = useState(0);
-
   const handleLike = async () => {
-    if (listings && listings.length > 0) {
-      const ownerId = listings[currentListingIndex]?.userId as Id<"users">;
-      const conversationId = await createConversation({ userId: ownerId });
-      if (conversationId) {
-        window.location.href = "/sitter/conversations/" + conversationId;
-      }
-    }
+    // call the action and create a conversation with the owner
+    const conversationId = await createConversation({ userId: listings?.[currentListingIndex]?.userId as Id<"users"> });
+    window.location.href = "/sitter/conversations/" + conversationId;
   };
 
   const handleDislike = () => {
