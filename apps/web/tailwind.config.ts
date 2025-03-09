@@ -19,6 +19,11 @@ const config: Config = {
     extend: {
       colors: {
         primary: "#0D87E1",
+        pastelPink: '#FADADD',
+        pastelPurple: '#E0BBE4',
+        pastelBlue: '#C1C8E4',
+        pastelPinkHover: '#F8BBD0',
+        pastelBlueHover: '#B3CDE0',
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

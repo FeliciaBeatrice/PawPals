@@ -74,13 +74,13 @@ export default function Header() {
                 ) : (
                   <div className="hidden sm:flex absolute inset-y-0 right-0 gap-6 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <Link
-                      href="/notes"
+                      href="/onboarding"
                       className="border rounded-lg border-solid border-[#2D2D2D] text-[#2D2D2D] text-center text-xl not-italic font-normal leading-[normal] font-montserrat px-[22px] py-2.5"
                     >
                       Sign in
                     </Link>
                     <Link
-                      href="/notes"
+                      href="/onboarding"
                       className=" text-white text-center text-xl not-italic font-normal leading-[normal] font-montserrat px-[22px] py-[11px] button"
                     >
                       Get Started
@@ -118,13 +118,13 @@ export default function Header() {
               ))}
               <div className="flex gap-6 items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <Link
-                  href="/notes"
+                  href="/onboarding"
                   className="border rounded-lg border-solid border-[#2D2D2D] text-[#2D2D2D] text-center text-xl not-italic font-normal leading-[normal] font-montserrat px-5 py-[5px]"
                 >
                   Sign in
                 </Link>
                 <Link
-                  href="/notes"
+                  href="/onboarding"
                   className=" text-white text-center text-xl not-italic font-normal leading-[normal] font-montserrat px-5 py-1.5 button"
                 >
                   Get Started

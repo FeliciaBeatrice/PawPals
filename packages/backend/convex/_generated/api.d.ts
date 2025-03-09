@@ -14,6 +14,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as http from "../http.js";
+import type * as mutations_setUserRole from "../mutations/setUserRole.js";
 import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
 import type * as users_userManagement from "../users/userManagement.js";
@@ -30,6 +31,7 @@ import type * as webhooks from "../webhooks.js";
  */
 declare const fullApi: ApiFromModules<{
   http: typeof http;
+  "mutations/setUserRole": typeof mutations_setUserRole;
   notes: typeof notes;
   openai: typeof openai;
   "users/userManagement": typeof users_userManagement;
