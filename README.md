@@ -75,7 +75,7 @@ In your [Convex project dashboard > Settings > Environment Variables](https://da
 In each app directory (apps/web, apps/native) create a .env.local file using the .example.env as a template and fill out your Convex and Clerk environment variables.
 
 - Use the CONVEX_URL from packages/backend/.env.local for {NEXT,EXPO}_PUBLIC_CONVEX_URL.
--The Clerk publishable & secret keys can be found [here](https://dashboard.clerk.com/last-active?path=api-keys).
+- The Clerk publishable & secret keys can be found [here](https://dashboard.clerk.com/last-active?path=api-keys).
 
 ### 6. Run Both Apps
 
