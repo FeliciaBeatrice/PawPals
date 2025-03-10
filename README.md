@@ -63,6 +63,7 @@ To set up user authentication with Clerk:
 1. **Create a Clerk Account**: Sign up at [Clerk's website](https://clerk.dev).
 2. **Create a New Application**: Choose how you want your users to sign in.
 3. **Create a JWT Template**: In the JWT Templates section of the Clerk dashboard tap on + New template and choose 'Convex'. Copy the Issuer URL from the Issuer input field. Hit Apply Changes.
+4. **Configure webhook**: Inside Clerk, you need to add a new Webhook for 'user.created' and 'user.deleted', set the target to 'convex site url' + '/webhooks/clerk'. i.e. (https://ossified-dolphin.convex.site/webhooks/cleek) You can find the convex site url inside the convex dashboard, the url needs to end with '.site' and not '.cloud'. 
 
 ### 4. Set Up Environment Variables
 
