@@ -21,7 +21,6 @@ import type * as http from "../http.js";
 import type * as mutations_createConversation from "../mutations/createConversation.js";
 import type * as mutations_setUserProfile from "../mutations/setUserProfile.js";
 import type * as mutations_setUserRole from "../mutations/setUserRole.js";
-import type * as notes from "../notes.js";
 import type * as openai from "../openai.js";
 import type * as queries_getConversationsOfOwner from "../queries/getConversationsOfOwner.js";
 import type * as queries_getConversationsOfSitter from "../queries/getConversationsOfSitter.js";
@@ -49,7 +48,6 @@ declare const fullApi: ApiFromModules<{
   "mutations/createConversation": typeof mutations_createConversation;
   "mutations/setUserProfile": typeof mutations_setUserProfile;
   "mutations/setUserRole": typeof mutations_setUserRole;
-  notes: typeof notes;
   openai: typeof openai;
   "queries/getConversationsOfOwner": typeof queries_getConversationsOfOwner;
   "queries/getConversationsOfSitter": typeof queries_getConversationsOfSitter;
