@@ -11,7 +11,7 @@ export default function Button({
 }) {
   return (
     <button
-      className={`px-4 py-2 border border-secondary-500 bg-white text-secondary-900 font-montserrat rounded-lg hover:shadow-[4_4_0px_secondary-700] hover:bg-opacity-100 transition ${className}`}
+      className={`px-4 py-2 border-4 border-secondary-700 bg-white text-secondary-900 font-montserrat font-bold rounded-full hover:bg-primary-700 hover:text-white transition ${className}`}
       onClick={onClick}>
         {text}
     </button>
