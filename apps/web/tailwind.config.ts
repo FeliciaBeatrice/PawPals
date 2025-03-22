@@ -18,7 +18,16 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: "#FADADD",
+        primary: {
+          500: "#FCCEE8",
+          700: "#FDA5D5",
+          900: "#861043",
+        },
+        secondary: {
+          500: "#BEDBFF",
+          700: "#8EC5FF",
+          900: "#1C398E",
+        }, // TODO: delete the below colors after refactoring frontend pages
         pastelPink: '#FADADD',
         pastelPurple: '#E0BBE4',
         pastelBlue: '#C1C8E4',
@@ -28,7 +37,7 @@ const config: Config = {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         lato: ["Lato", "sans-serif"],
-        // montserrat : ['Montserrat', 'sans-serif'],
+        montserrat : ['Montserrat', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
