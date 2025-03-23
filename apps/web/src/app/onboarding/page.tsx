@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { api } from "@packages/backend/convex/_generated/api";
 import { useMutation } from "convex/react";
+import Rectangle from '@/components/common/Rectangle';
+import Button from '@/components/common/Button';
 
 export default function OnboardingPage() {
     const router = useRouter();
@@ -20,24 +22,16 @@ export default function OnboardingPage() {
     };
 
     return (
-        <main className="bg-gradient-to-r from-pastelPink via-pastelPurple to-pastelBlue h-screen flex flex-col items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-                <p className="mb-6">Are you a pet owner or a pet sitter?</p>
-                <div className="flex flex-col space-y-4 items-center">
-                    <button 
-                        className="bg-pastelPink text-white px-4 py-2 rounded hover:bg-pastelPinkHover"
-                        onClick={() => handleRoleSelection("owner")}
-                    >
-                        Pet Owner
-                    </button>
-                    <button 
-                        className="bg-pastelBlue text-white px-4 py-2 rounded hover:bg-pastelBlueHover"
-                        onClick={() => handleRoleSelection("sitter")}
-                    >
-                        Pet Sitter
-                    </button>
+        <main className="flex justify-center items-center h-screen">
+            <Rectangle className="w-[640px] h-[250px] flex flex-col justify-center items-center gap-6">
+                <h1 className="text-secondary-900 font-montserrat font-extrabold text-2xl text-center">
+                    Are you a pet owner or a pet sitter?
+                </h1>
+                <div className="flex gap-4">
+                    <Button text="Pet Owner" className="text-secondary-900 font-montserrat font-bold" />
+                    <Button text="Pet Sitter" className="text-secondary-900 font-montserrat font-bold" />
                 </div>
-            </div>
+            </Rectangle>
         </main>
     );
 }
