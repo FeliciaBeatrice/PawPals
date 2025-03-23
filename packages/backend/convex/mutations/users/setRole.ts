@@ -1,8 +1,8 @@
-import { mutation } from "../_generated/server";
 import { v } from "convex/values";
-import { getCurrentUserOrThrow } from "../users/userManagement";
+import { mutation } from "../../_generated/server";
+import { getCurrentUserOrThrow } from "../../users/userManagement";
 
-export const setUserRole = mutation({
+export const setRole = mutation({
     args: {
         role: v.string(),   // owner or sitter
     },

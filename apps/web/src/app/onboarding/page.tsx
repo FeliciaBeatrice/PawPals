@@ -5,11 +5,14 @@ import { api } from "@packages/backend/convex/_generated/api";
 import { useMutation } from "convex/react";
 import Rectangle from '@/components/common/Rectangle';
 import Button from '@/components/common/Button';
+import { useAuth } from '@clerk/clerk-react';
 
 export default function OnboardingPage() {
+    const { isSignedIn } = useAuth();
+    
     const router = useRouter();
     
-    const setUserRole = useMutation(api.mutations.setUserRole.setUserRole);
+    const setUserRole = useMutation(api.mutations.users.setRole.setRole);
 
     const handleRoleSelection = async (role: "owner" | "sitter") => {
         await setUserRole({ role });
@@ -28,8 +31,8 @@ export default function OnboardingPage() {
                     Are you a pet owner or a pet sitter?
                 </h1>
                 <div className="flex gap-4">
-                    <Button text="Pet Owner" className="text-secondary-900 font-montserrat font-bold" />
-                    <Button text="Pet Sitter" className="text-secondary-900 font-montserrat font-bold" />
+                    <Button text="Pet Owner" className="text-secondary-900 font-montserrat font-bold" onClick={() => handleRoleSelection("owner")} />
+                    <Button text="Pet Sitter" className="text-secondary-900 font-montserrat font-bold" onClick={() => handleRoleSelection("sitter")} />
                 </div>
             </Rectangle>
         </main>
