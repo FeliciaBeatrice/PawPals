@@ -2,6 +2,7 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
+  // TODO: rethink users (esp sitter) schema
   users: defineTable({
     externalId: v.string(), // clerk user id
     isOnboardingCompleted: v.boolean(),

@@ -7,7 +7,7 @@ import { api } from "@packages/backend/convex/_generated/api";
 
 export default function SitterProfilePage() {
     const sitterProfile = useQuery(api.queries.getUserProfile.getSitterProfile);
-    const setSitterProfile = useMutation(api.mutations.setUserProfile.setSitterProfile);
+    const setSitterProfile = useMutation(api.mutations.users.setProfile.setSitterProfile);
 
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({

@@ -110,6 +110,7 @@ export default function OwnerOnboardingPage() {
           </div>
 
           {/* Location Input */}
+          {/* TODO: add some sort of maps feature */}
           <div className="w-full">
             <label className="block text-secondary-900 font-montserrat font-semibold">
               Location
