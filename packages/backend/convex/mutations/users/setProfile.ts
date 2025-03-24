@@ -1,6 +1,6 @@
-import { mutation } from "../_generated/server";
+import { mutation } from "../../_generated/server";
 import { v } from "convex/values";
-import { getCurrentUserOrThrow } from "../users/userManagement";
+import { getCurrentUserOrThrow } from "../../users/userManagement";
 
 export const setOwnerProfile = mutation({
     args: {

@@ -15,7 +15,7 @@ export default function SitterOnboardingPage() {
   const [skills, setSkills] = useState('');
   const [notes, setNotes] = useState('');
 
-  const setSitterProfile = useMutation(api.mutations.setUserProfile.setSitterProfile);
+  const setSitterProfile = useMutation(api.mutations.users.setProfile.setSitterProfile);
   const router = useRouter();
 
   async function handleSubmit(event: any) {

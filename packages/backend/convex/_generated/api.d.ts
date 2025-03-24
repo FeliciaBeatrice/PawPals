@@ -19,7 +19,7 @@ import type * as database_seedOwners from "../database/seedOwners.js";
 import type * as database_seedSitters from "../database/seedSitters.js";
 import type * as http from "../http.js";
 import type * as mutations_createConversation from "../mutations/createConversation.js";
-import type * as mutations_setUserProfile from "../mutations/setUserProfile.js";
+import type * as mutations_users_setProfile from "../mutations/users/setProfile.js";
 import type * as mutations_users_setRole from "../mutations/users/setRole.js";
 import type * as queries_getConversationsOfOwner from "../queries/getConversationsOfOwner.js";
 import type * as queries_getConversationsOfSitter from "../queries/getConversationsOfSitter.js";
@@ -47,7 +47,7 @@ declare const fullApi: ApiFromModules<{
   "database/seedSitters": typeof database_seedSitters;
   http: typeof http;
   "mutations/createConversation": typeof mutations_createConversation;
-  "mutations/setUserProfile": typeof mutations_setUserProfile;
+  "mutations/users/setProfile": typeof mutations_users_setProfile;
   "mutations/users/setRole": typeof mutations_users_setRole;
   "queries/getConversationsOfOwner": typeof queries_getConversationsOfOwner;
   "queries/getConversationsOfSitter": typeof queries_getConversationsOfSitter;

@@ -1,76 +1,138 @@
 "use client";
 
-import { useState } from 'react';
-import { useMutation } from 'convex/react';
+import Rectangle from "@/components/common/Rectangle";
+import { useAuth } from "@clerk/clerk-react";
 import { api } from "@packages/backend/convex/_generated/api";
+import { useMutation } from "convex/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function OwnerOnboardingPage() {
-  const [name, setName] = useState('');
-  const [displayPicture, setDisplayPicture] = useState<File | null>(null);
-  const [location, setLocation] = useState('');
+  const { isSignedIn } = useAuth();
 
-  const setOwnerProfile = useMutation(api.mutations.setUserProfile.setOwnerProfile);
+  const router = useRouter();
 
-  async function handleSubmit(event: any) {
-    event.preventDefault();
+  const setOwnerProfile = useMutation(api.mutations.users.setProfile.setOwnerProfile);
 
-    // convert display picture to base 64 string
-    const displayPictureBase64 = displayPicture ? await toBase64(displayPicture) : undefined;
-
-    await setOwnerProfile({
-      name,
-      displayPicture: displayPictureBase64,
-      location,
-    });
-  }
-
-  function toBase64(file: File): Promise<string> {
-    return new Promise((resolve, reject) => {
+  // Convert display picture file to Base64 string
+  const convertToBase64 = (file: File) => {
+    return new Promise<string>((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result as string);
-      reader.onerror = error => reject(error);
+      reader.onerror = (error) => reject(error);
     });
-  }
+  };
+
+  // Form state
+  const [formData, setFormData] = useState({
+    name: "",
+    displayPicture: null,
+    location: "",
+  });
+
+  const [error, setError] = useState("");
+
+  // Handle input changes
+  const handleChange = (e: any) => {
+    const { name, value, type, files } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "file" ? files[0] : value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    // Validate fields
+    if (!formData.name || !formData.displayPicture || !formData.location) {
+      setError("All fields are required.");
+      return;
+    }
+
+    setError(""); // Clear error message if everything is valid
+
+    const displayPictureBase64String = await convertToBase64(formData.displayPicture);
+
+    // Call mutation to set owner profile
+    try {
+      await setOwnerProfile({
+        name: formData.name,
+        displayPicture: displayPictureBase64String,
+        location: formData.location,
+      });
+
+      router.push("/owner");
+    } catch (error) {
+      setError("Failed to submit the form. Please try again.");
+    }
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-pastelBlue">
-      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        <div className="mb-4">
-          <label className="block text-gray-700">Name</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="mt-1 p-2 w-full border rounded focus:border-primary"
-            placeholder="Enter your name"
-          />
-        </div>
+    <main className="flex justify-center items-center h-screen">
+      <Rectangle className="w-[500px] h-[450px] flex flex-col justify-center items-center gap-6">
+        <h1 className="text-secondary-900 font-montserrat font-extrabold text-2xl text-center">
+          Pet Owner Onboarding
+        </h1>
 
-        <div className="mb-4">
-          <label className="block text-gray-700">Display Picture</label>
-          <input
-            type="file"
-            onChange={(e) => setDisplayPicture(e.target.files ? e.target.files[0] : null)}
-            className="mt-1 p-2 w-full border rounded focus:border-primary"
-          />
-        </div>
+        {error && <p className="text-red-500 font-montserrat font-semibold">{error}</p>}
 
-        <div className="mb-4">
-          <label className="block text-gray-700">Location</label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="mt-1 p-2 w-full border rounded focus:border-primary"
-            placeholder="Enter your location"
-          />
-        </div>
+        <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+          {/* Name Input */}
+          <div className="w-full">
+            <label className="block text-secondary-900 font-montserrat font-semibold">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 bg-white border border-secondary-700 text-secondary-900 rounded-lg focus:ring focus:ring-secondary-700 outline-none"
+            />
+          </div>
 
-        <button type="submit" className="bg-primary text-white p-2 rounded hover:bg-pastelBlueHover">
-          Submit
-        </button>
-      </form>
-    </div>
+          {/* Display Picture Input */}
+          <div className="w-full">
+            <label className="block text-secondary-900 font-montserrat font-semibold">
+              Display Picture
+            </label>
+            <input
+              type="file"
+              name="displayPicture"
+              accept="image/*"
+              onChange={handleChange}
+              className="w-full mt-1 p-2 bg-white border border-secondary-700 rounded-lg focus:ring focus:ring-secondary-400 outline-none"
+            />
+          </div>
+
+          {/* Location Input */}
+          <div className="w-full">
+            <label className="block text-secondary-900 font-montserrat font-semibold">
+              Location
+            </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="Enter your location"
+              value={formData.location}
+              onChange={handleChange}
+              className="w-full mt-1 p-2 bg-white border border-secondary-700 text-secondary-900 rounded-lg focus:ring focus:ring-secondary-700 outline-none"
+            />
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-secondary-900 text-white font-bold py-2 rounded-lg hover:bg-secondary-500"
+          >
+            Submit
+          </button>
+        </form>
+      </Rectangle>
+    </main>
   );
 }
