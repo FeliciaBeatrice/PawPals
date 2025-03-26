@@ -9,7 +9,7 @@ export default function Header() {
   const { isSignedIn } = useAuth();
   
   const isOnboardingCompleted = useQuery(api.queries.users.getIsOnboardingCompleted.getIsOnboardingCompleted, isSignedIn ? {} : "skip");
-  const role = useQuery(api.queries.users.getRole.getRole);
+  const role = useQuery(api.queries.users.getRole.getRole,  isSignedIn ? {} : "skip");
 
   return (
     <header className="flex items-center justify-between bg-secondary-900 p-2 px-6">
